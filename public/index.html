@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hierarchy Explorer · /bfhl</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div class="hero__badge">POST /bfhl</div>
+        <h1>Hierarchy Explorer</h1>
+        <p class="hero__sub">
+          Enter edges like <code>A-&gt;B</code> and visualise trees, cycles and
+          insights returned by the API.
+        </p>
+      </header>
+
+      <main class="grid">
+        <section class="panel panel--input">
+          <h2>Input</h2>
+
+          <label class="field">
+            <span class="field__label">API endpoint</span>
+            <input
+              id="apiUrl"
+              type="text"
+              class="field__input"
+              spellcheck="false"
+              placeholder="/bfhl"
+            />
+          </label>
+
+          <label class="field">
+            <span class="field__label">
+              Edges
+              <small>one per line, or comma separated</small>
+            </span>
+            <textarea
+              id="dataInput"
+              class="field__textarea"
+              spellcheck="false"
+              rows="12"
+              placeholder="A->B&#10;A->C&#10;B->D"
+            ></textarea>
+          </label>
+
+          <div class="actions">
+            <button id="submitBtn" class="btn btn--primary" type="button">
+              <span class="btn__label">Process</span>
+              <span class="spinner" hidden></span>
+            </button>
+            <button id="sampleBtn" class="btn btn--ghost" type="button">
+              Load sample
+            </button>
+            <button id="clearBtn" class="btn btn--ghost" type="button">
+              Clear
+            </button>
+          </div>
+
+          <div id="error" class="alert" hidden></div>
+        </section>
+
+        <section class="panel panel--output">
+          <h2>Result</h2>
+          <div id="empty" class="empty">
+            <p>Run the processor to see hierarchies, cycles and the summary.</p>
+          </div>
+
+          <div id="output" class="output" hidden>
+            <div class="identity" id="identity"></div>
+
+            <div class="summary-cards" id="summaryCards"></div>
+
+            <div class="section">
+              <h3>Hierarchies</h3>
+              <div id="hierarchies" class="hierarchies"></div>
+            </div>
+
+            <div class="section two-col">
+              <div>
+                <h3>Invalid entries</h3>
+                <div id="invalid" class="chips"></div>
+              </div>
+              <div>
+                <h3>Duplicate edges</h3>
+                <div id="duplicates" class="chips"></div>
+              </div>
+            </div>
+
+            <details class="raw">
+              <summary>Raw JSON response</summary>
+              <pre id="rawJson"></pre>
+            </details>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        Chitkara Full Stack Engineering Challenge · Round 1
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

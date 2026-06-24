@@ -1,0 +1,26 @@
+{
+  "name": "bfhl-hierarchy-api",
+  "version": "1.0.0",
+  "description": "Chitkara Full Stack Challenge - POST /bfhl hierarchy processing API + frontend",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test/processor.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "keywords": [
+    "bfhl",
+    "hierarchy",
+    "express",
+    "api"
+  ],
+  "license": "MIT"
+}
